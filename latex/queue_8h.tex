@@ -1,0 +1,136 @@
+\hypertarget{queue_8h}{}\doxysection{queue.\+h File Reference}
+\label{queue_8h}\index{queue.h@{queue.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for queue.\+h\+:
+% FIG 0
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct queue\+\_\+s \mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}}
+\begin{DoxyCompactList}\small\item\em Lightweight implementation of double-\/ended queue data structure following GLib interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$ \mbox{\hyperlink{queue_8h_a79db183393029a7ee68f312655d9926d}{queue\+\_\+new}} ()
+\item 
+void \mbox{\hyperlink{queue_8h_a2a796a73887925e94f9af967295bd503}{queue\+\_\+push\+\_\+head}} (\mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$q, void $\ast$data)
+\item 
+void \mbox{\hyperlink{queue_8h_a94a3f57598faece4ab6198a49f5054e7}{queue\+\_\+push\+\_\+tail}} (\mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$q, void $\ast$data)
+\item 
+void $\ast$ \mbox{\hyperlink{queue_8h_a88f7e2a2b53942bfb46ad5b480a6c456}{queue\+\_\+pop\+\_\+head}} (\mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$q)
+\item 
+void $\ast$ \mbox{\hyperlink{queue_8h_a9c4d56be92e8cbc5aae5e9dedc76198d}{queue\+\_\+pop\+\_\+tail}} (\mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$q)
+\item 
+int \mbox{\hyperlink{queue_8h_a5551a751c25d459dad1323c8877b5a5d}{queue\+\_\+length}} (const \mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$q)
+\item 
+bool \mbox{\hyperlink{queue_8h_a67b369b6eddbacdb1287f21f8be44d00}{queue\+\_\+is\+\_\+empty}} (const \mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$q)
+\item 
+void $\ast$ \mbox{\hyperlink{queue_8h_a8261f7817b2d02f5e6f3c2a72c21c1e5}{queue\+\_\+peek\+\_\+head}} (\mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$q)
+\item 
+void $\ast$ \mbox{\hyperlink{queue_8h_a630d31877e5ff6a431bca25c5a0d655e}{queue\+\_\+peek\+\_\+tail}} (\mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$q)
+\item 
+void \mbox{\hyperlink{queue_8h_a0996aa6c72e422580a4b2556b4773a05}{queue\+\_\+clear}} (\mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$q)
+\item 
+void \mbox{\hyperlink{queue_8h_abb77587325f588369f156b73036b3f03}{queue\+\_\+clear\+\_\+full}} (\mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$q, void($\ast$destroy)(void $\ast$))
+\item 
+void \mbox{\hyperlink{queue_8h_abf604398920042a8056f257d292fe8a3}{queue\+\_\+free}} (\mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$q)
+\item 
+void \mbox{\hyperlink{queue_8h_a0b46010488b118ec696ae385f2512c43}{queue\+\_\+free\+\_\+full}} (\mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$q, void($\ast$destroy)(void $\ast$))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{queue_8h_a12da61fac91dcf8756c9b85da46bc095}\label{queue_8h_a12da61fac91dcf8756c9b85da46bc095}} 
+\index{queue.h@{queue.h}!queue@{queue}}
+\index{queue@{queue}!queue.h@{queue.h}}
+\doxysubsubsection{\texorpdfstring{queue}{queue}}
+{\footnotesize\ttfamily typedef struct queue\+\_\+s \mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}}}
+
+
+
+Lightweight implementation of double-\/ended queue data structure following GLib interface. 
+
+\begin{DoxyAuthor}{Author}
+\href{mailto:aurelien.esnard@u-bordeaux.fr}{\texttt{ aurelien.\+esnard@u-\/bordeaux.\+fr}}
+\end{DoxyAuthor}
+For futher details, please visit \+: \href{https://developer.gnome.org/glib/stable/glib-Double-ended-Queues.html}{\texttt{ https\+://developer.\+gnome.\+org/glib/stable/glib-\/\+Double-\/ended-\/\+Queues.\+html}} 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{queue_8h_a0996aa6c72e422580a4b2556b4773a05}\label{queue_8h_a0996aa6c72e422580a4b2556b4773a05}} 
+\index{queue.h@{queue.h}!queue\_clear@{queue\_clear}}
+\index{queue\_clear@{queue\_clear}!queue.h@{queue.h}}
+\doxysubsubsection{\texorpdfstring{queue\_clear()}{queue\_clear()}}
+{\footnotesize\ttfamily void queue\+\_\+clear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$}]{q }\end{DoxyParamCaption})}
+
+Removes all the elements in queue. If queue elements contain dynamically-\/allocated memory, they should be freed first. \mbox{\Hypertarget{queue_8h_abb77587325f588369f156b73036b3f03}\label{queue_8h_abb77587325f588369f156b73036b3f03}} 
+\index{queue.h@{queue.h}!queue\_clear\_full@{queue\_clear\_full}}
+\index{queue\_clear\_full@{queue\_clear\_full}!queue.h@{queue.h}}
+\doxysubsubsection{\texorpdfstring{queue\_clear\_full()}{queue\_clear\_full()}}
+{\footnotesize\ttfamily void queue\+\_\+clear\+\_\+full (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$}]{q,  }\item[{void($\ast$)(void $\ast$)}]{destroy }\end{DoxyParamCaption})}
+
+Convenience method, which frees all the memory used by a queue, and calls the provided destroy function on each element in the queue. \mbox{\Hypertarget{queue_8h_abf604398920042a8056f257d292fe8a3}\label{queue_8h_abf604398920042a8056f257d292fe8a3}} 
+\index{queue.h@{queue.h}!queue\_free@{queue\_free}}
+\index{queue\_free@{queue\_free}!queue.h@{queue.h}}
+\doxysubsubsection{\texorpdfstring{queue\_free()}{queue\_free()}}
+{\footnotesize\ttfamily void queue\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$}]{q }\end{DoxyParamCaption})}
+
+Frees the memory allocated for the queue. If queue elements contain dynamically-\/allocated memory, you should either use \mbox{\hyperlink{queue_8h_a0b46010488b118ec696ae385f2512c43}{queue\+\_\+free\+\_\+full()}} or free them manually first. \mbox{\Hypertarget{queue_8h_a0b46010488b118ec696ae385f2512c43}\label{queue_8h_a0b46010488b118ec696ae385f2512c43}} 
+\index{queue.h@{queue.h}!queue\_free\_full@{queue\_free\_full}}
+\index{queue\_free\_full@{queue\_free\_full}!queue.h@{queue.h}}
+\doxysubsubsection{\texorpdfstring{queue\_free\_full()}{queue\_free\_full()}}
+{\footnotesize\ttfamily void queue\+\_\+free\+\_\+full (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$}]{q,  }\item[{void($\ast$)(void $\ast$)}]{destroy }\end{DoxyParamCaption})}
+
+Convenience method, which frees all the memory used by a queue, and calls the provided destroy function on every element\textquotesingle{}s data. \mbox{\Hypertarget{queue_8h_a67b369b6eddbacdb1287f21f8be44d00}\label{queue_8h_a67b369b6eddbacdb1287f21f8be44d00}} 
+\index{queue.h@{queue.h}!queue\_is\_empty@{queue\_is\_empty}}
+\index{queue\_is\_empty@{queue\_is\_empty}!queue.h@{queue.h}}
+\doxysubsubsection{\texorpdfstring{queue\_is\_empty()}{queue\_is\_empty()}}
+{\footnotesize\ttfamily bool queue\+\_\+is\+\_\+empty (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$}]{q }\end{DoxyParamCaption})}
+
+Returns true if the queue is empty. \mbox{\Hypertarget{queue_8h_a5551a751c25d459dad1323c8877b5a5d}\label{queue_8h_a5551a751c25d459dad1323c8877b5a5d}} 
+\index{queue.h@{queue.h}!queue\_length@{queue\_length}}
+\index{queue\_length@{queue\_length}!queue.h@{queue.h}}
+\doxysubsubsection{\texorpdfstring{queue\_length()}{queue\_length()}}
+{\footnotesize\ttfamily int queue\+\_\+length (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$}]{q }\end{DoxyParamCaption})}
+
+Returns the number of elements in queue. \mbox{\Hypertarget{queue_8h_a79db183393029a7ee68f312655d9926d}\label{queue_8h_a79db183393029a7ee68f312655d9926d}} 
+\index{queue.h@{queue.h}!queue\_new@{queue\_new}}
+\index{queue\_new@{queue\_new}!queue.h@{queue.h}}
+\doxysubsubsection{\texorpdfstring{queue\_new()}{queue\_new()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}}$\ast$ queue\+\_\+new (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Creates a new queue. \mbox{\Hypertarget{queue_8h_a8261f7817b2d02f5e6f3c2a72c21c1e5}\label{queue_8h_a8261f7817b2d02f5e6f3c2a72c21c1e5}} 
+\index{queue.h@{queue.h}!queue\_peek\_head@{queue\_peek\_head}}
+\index{queue\_peek\_head@{queue\_peek\_head}!queue.h@{queue.h}}
+\doxysubsubsection{\texorpdfstring{queue\_peek\_head()}{queue\_peek\_head()}}
+{\footnotesize\ttfamily void$\ast$ queue\+\_\+peek\+\_\+head (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$}]{q }\end{DoxyParamCaption})}
+
+Returns the first element of the queue. \mbox{\Hypertarget{queue_8h_a630d31877e5ff6a431bca25c5a0d655e}\label{queue_8h_a630d31877e5ff6a431bca25c5a0d655e}} 
+\index{queue.h@{queue.h}!queue\_peek\_tail@{queue\_peek\_tail}}
+\index{queue\_peek\_tail@{queue\_peek\_tail}!queue.h@{queue.h}}
+\doxysubsubsection{\texorpdfstring{queue\_peek\_tail()}{queue\_peek\_tail()}}
+{\footnotesize\ttfamily void$\ast$ queue\+\_\+peek\+\_\+tail (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$}]{q }\end{DoxyParamCaption})}
+
+Returns the last element of the queue. \mbox{\Hypertarget{queue_8h_a88f7e2a2b53942bfb46ad5b480a6c456}\label{queue_8h_a88f7e2a2b53942bfb46ad5b480a6c456}} 
+\index{queue.h@{queue.h}!queue\_pop\_head@{queue\_pop\_head}}
+\index{queue\_pop\_head@{queue\_pop\_head}!queue.h@{queue.h}}
+\doxysubsubsection{\texorpdfstring{queue\_pop\_head()}{queue\_pop\_head()}}
+{\footnotesize\ttfamily void$\ast$ queue\+\_\+pop\+\_\+head (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$}]{q }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{queue_8h_a9c4d56be92e8cbc5aae5e9dedc76198d}\label{queue_8h_a9c4d56be92e8cbc5aae5e9dedc76198d}} 
+\index{queue.h@{queue.h}!queue\_pop\_tail@{queue\_pop\_tail}}
+\index{queue\_pop\_tail@{queue\_pop\_tail}!queue.h@{queue.h}}
+\doxysubsubsection{\texorpdfstring{queue\_pop\_tail()}{queue\_pop\_tail()}}
+{\footnotesize\ttfamily void$\ast$ queue\+\_\+pop\+\_\+tail (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$}]{q }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{queue_8h_a2a796a73887925e94f9af967295bd503}\label{queue_8h_a2a796a73887925e94f9af967295bd503}} 
+\index{queue.h@{queue.h}!queue\_push\_head@{queue\_push\_head}}
+\index{queue\_push\_head@{queue\_push\_head}!queue.h@{queue.h}}
+\doxysubsubsection{\texorpdfstring{queue\_push\_head()}{queue\_push\_head()}}
+{\footnotesize\ttfamily void queue\+\_\+push\+\_\+head (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$}]{q,  }\item[{void $\ast$}]{data }\end{DoxyParamCaption})}
+
+Adds a new element at the head of the queue. \mbox{\Hypertarget{queue_8h_a94a3f57598faece4ab6198a49f5054e7}\label{queue_8h_a94a3f57598faece4ab6198a49f5054e7}} 
+\index{queue.h@{queue.h}!queue\_push\_tail@{queue\_push\_tail}}
+\index{queue\_push\_tail@{queue\_push\_tail}!queue.h@{queue.h}}
+\doxysubsubsection{\texorpdfstring{queue\_push\_tail()}{queue\_push\_tail()}}
+{\footnotesize\ttfamily void queue\+\_\+push\+\_\+tail (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a12da61fac91dcf8756c9b85da46bc095}{queue}} $\ast$}]{q,  }\item[{void $\ast$}]{data }\end{DoxyParamCaption})}
+

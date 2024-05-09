@@ -1,0 +1,247 @@
+\hypertarget{game__ext_8h}{}\doxysection{game\+\_\+ext.\+h File Reference}
+\label{game__ext_8h}\index{game\_ext.h@{game\_ext.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}game.\+h\char`\"{}}\newline
+Include dependency graph for game\+\_\+ext.\+h\+:
+% FIG 0
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{game__ext_8h_a9c3f48cdfe80a3f80bfaf5e15c58456e}{neighbourhood}} \{ \mbox{\hyperlink{game__ext_8h_a9c3f48cdfe80a3f80bfaf5e15c58456ead08f8ac0aa8dfb59589824359772459e}{FULL}}
+, \mbox{\hyperlink{game__ext_8h_a9c3f48cdfe80a3f80bfaf5e15c58456ea263a3c33672d11eca458ce3c577a51da}{ORTHO}}
+, \mbox{\hyperlink{game__ext_8h_a9c3f48cdfe80a3f80bfaf5e15c58456ea9537269d9d427317f281e003ea9ff210}{FULL\+\_\+\+EXCLUDE}}
+, \mbox{\hyperlink{game__ext_8h_a9c3f48cdfe80a3f80bfaf5e15c58456eabf42457d6144f8ddc5216c86530bd265}{ORTHO\+\_\+\+EXCLUDE}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}} \mbox{\hyperlink{game__ext_8h_ad1691c1128a95d136d9b8496fd19aa59}{game\+\_\+new\+\_\+ext}} (\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} nb\+\_\+rows, \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} nb\+\_\+cols, \mbox{\hyperlink{game_8h_ac840eea0d96311de02e3204cdd2b8497}{constraint}} $\ast$constraints, \mbox{\hyperlink{game_8h_a37dbdc30935031c05304482e1be89d8f}{color}} $\ast$colors, bool wrapping, \mbox{\hyperlink{game__ext_8h_a9c3f48cdfe80a3f80bfaf5e15c58456e}{neighbourhood}} neigh)
+\begin{DoxyCompactList}\small\item\em Creates a new game with extended options and initializes it. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}} \mbox{\hyperlink{game__ext_8h_afe1411852d3b8dceb9653ad6b62fd5d2}{game\+\_\+new\+\_\+empty\+\_\+ext}} (\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} nb\+\_\+rows, \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} nb\+\_\+cols, bool wrapping, \mbox{\hyperlink{game__ext_8h_a9c3f48cdfe80a3f80bfaf5e15c58456e}{neighbourhood}} neigh)
+\begin{DoxyCompactList}\small\item\em Creates a new empty game with extended options. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{game__ext_8h_a11672b371b10904a9ee573041af3149d}{game\+\_\+nb\+\_\+rows}} (\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}} g)
+\begin{DoxyCompactList}\small\item\em Gets the number of rows (or height). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{game__ext_8h_a8aaf66d5c1246d56ae842705d2dc2f47}{game\+\_\+nb\+\_\+cols}} (\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}} g)
+\begin{DoxyCompactList}\small\item\em Gets the number of columns (or width). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{game__ext_8h_a220515041d1b8755f646bb72b92c279a}{game\+\_\+is\+\_\+wrapping}} (\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}} g)
+\begin{DoxyCompactList}\small\item\em Checks if the game has the wrapping option. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__ext_8h_a9c3f48cdfe80a3f80bfaf5e15c58456e}{neighbourhood}} \mbox{\hyperlink{game__ext_8h_a825c38a637002b73598d053acd97cbee}{game\+\_\+get\+\_\+neighbourhood}} (\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}} g)
+\begin{DoxyCompactList}\small\item\em Gets the neighbourhood option. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__ext_8h_a645c3423245a31af908fcd3434254204}{game\+\_\+undo}} (\mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}} g)
+\begin{DoxyCompactList}\small\item\em Undoes the last move. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__ext_8h_a2f80dbffdb3d7b16e05526a29a143f14}{game\+\_\+redo}} (\mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}} g)
+\begin{DoxyCompactList}\small\item\em Redoes the last move. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{game__ext_8h_a9c3f48cdfe80a3f80bfaf5e15c58456e}\label{game__ext_8h_a9c3f48cdfe80a3f80bfaf5e15c58456e}} 
+\index{game\_ext.h@{game\_ext.h}!neighbourhood@{neighbourhood}}
+\index{neighbourhood@{neighbourhood}!game\_ext.h@{game\_ext.h}}
+\doxysubsubsection{\texorpdfstring{neighbourhood}{neighbourhood}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{game__ext_8h_a9c3f48cdfe80a3f80bfaf5e15c58456e}{neighbourhood}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FULL@{FULL}!game\_ext.h@{game\_ext.h}}\index{game\_ext.h@{game\_ext.h}!FULL@{FULL}}}\mbox{\Hypertarget{game__ext_8h_a9c3f48cdfe80a3f80bfaf5e15c58456ead08f8ac0aa8dfb59589824359772459e}\label{game__ext_8h_a9c3f48cdfe80a3f80bfaf5e15c58456ead08f8ac0aa8dfb59589824359772459e}} 
+FULL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ORTHO@{ORTHO}!game\_ext.h@{game\_ext.h}}\index{game\_ext.h@{game\_ext.h}!ORTHO@{ORTHO}}}\mbox{\Hypertarget{game__ext_8h_a9c3f48cdfe80a3f80bfaf5e15c58456ea263a3c33672d11eca458ce3c577a51da}\label{game__ext_8h_a9c3f48cdfe80a3f80bfaf5e15c58456ea263a3c33672d11eca458ce3c577a51da}} 
+ORTHO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FULL\_EXCLUDE@{FULL\_EXCLUDE}!game\_ext.h@{game\_ext.h}}\index{game\_ext.h@{game\_ext.h}!FULL\_EXCLUDE@{FULL\_EXCLUDE}}}\mbox{\Hypertarget{game__ext_8h_a9c3f48cdfe80a3f80bfaf5e15c58456ea9537269d9d427317f281e003ea9ff210}\label{game__ext_8h_a9c3f48cdfe80a3f80bfaf5e15c58456ea9537269d9d427317f281e003ea9ff210}} 
+FULL\+\_\+\+EXCLUDE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ORTHO\_EXCLUDE@{ORTHO\_EXCLUDE}!game\_ext.h@{game\_ext.h}}\index{game\_ext.h@{game\_ext.h}!ORTHO\_EXCLUDE@{ORTHO\_EXCLUDE}}}\mbox{\Hypertarget{game__ext_8h_a9c3f48cdfe80a3f80bfaf5e15c58456eabf42457d6144f8ddc5216c86530bd265}\label{game__ext_8h_a9c3f48cdfe80a3f80bfaf5e15c58456eabf42457d6144f8ddc5216c86530bd265}} 
+ORTHO\+\_\+\+EXCLUDE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{game__ext_8h_a825c38a637002b73598d053acd97cbee}\label{game__ext_8h_a825c38a637002b73598d053acd97cbee}} 
+\index{game\_ext.h@{game\_ext.h}!game\_get\_neighbourhood@{game\_get\_neighbourhood}}
+\index{game\_get\_neighbourhood@{game\_get\_neighbourhood}!game\_ext.h@{game\_ext.h}}
+\doxysubsubsection{\texorpdfstring{game\_get\_neighbourhood()}{game\_get\_neighbourhood()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{game__ext_8h_a9c3f48cdfe80a3f80bfaf5e15c58456e}{neighbourhood}} game\+\_\+get\+\_\+neighbourhood (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}}}]{g }\end{DoxyParamCaption})}
+
+
+
+Gets the neighbourhood option. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & The game. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The neighbourhood option. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+g is a valid pointer toward a cgame structure. 
+\end{DoxyPrecond}
+\mbox{\Hypertarget{game__ext_8h_a220515041d1b8755f646bb72b92c279a}\label{game__ext_8h_a220515041d1b8755f646bb72b92c279a}} 
+\index{game\_ext.h@{game\_ext.h}!game\_is\_wrapping@{game\_is\_wrapping}}
+\index{game\_is\_wrapping@{game\_is\_wrapping}!game\_ext.h@{game\_ext.h}}
+\doxysubsubsection{\texorpdfstring{game\_is\_wrapping()}{game\_is\_wrapping()}}
+{\footnotesize\ttfamily bool game\+\_\+is\+\_\+wrapping (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}}}]{g }\end{DoxyParamCaption})}
+
+
+
+Checks if the game has the wrapping option. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & The game. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, if wrapping option is enabled, false otherwise. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+g is a valid pointer toward a cgame structure. 
+\end{DoxyPrecond}
+\mbox{\Hypertarget{game__ext_8h_a8aaf66d5c1246d56ae842705d2dc2f47}\label{game__ext_8h_a8aaf66d5c1246d56ae842705d2dc2f47}} 
+\index{game\_ext.h@{game\_ext.h}!game\_nb\_cols@{game\_nb\_cols}}
+\index{game\_nb\_cols@{game\_nb\_cols}!game\_ext.h@{game\_ext.h}}
+\doxysubsubsection{\texorpdfstring{game\_nb\_cols()}{game\_nb\_cols()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} game\+\_\+nb\+\_\+cols (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}}}]{g }\end{DoxyParamCaption})}
+
+
+
+Gets the number of columns (or width). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & The game. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of columns on this game. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+g is a valid pointer toward a cgame structure. 
+\end{DoxyPrecond}
+\mbox{\Hypertarget{game__ext_8h_a11672b371b10904a9ee573041af3149d}\label{game__ext_8h_a11672b371b10904a9ee573041af3149d}} 
+\index{game\_ext.h@{game\_ext.h}!game\_nb\_rows@{game\_nb\_rows}}
+\index{game\_nb\_rows@{game\_nb\_rows}!game\_ext.h@{game\_ext.h}}
+\doxysubsubsection{\texorpdfstring{game\_nb\_rows()}{game\_nb\_rows()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} game\+\_\+nb\+\_\+rows (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}}}]{g }\end{DoxyParamCaption})}
+
+
+
+Gets the number of rows (or height). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & The game. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of rows on this game. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+g is a valid pointer toward a cgame structure. 
+\end{DoxyPrecond}
+\mbox{\Hypertarget{game__ext_8h_afe1411852d3b8dceb9653ad6b62fd5d2}\label{game__ext_8h_afe1411852d3b8dceb9653ad6b62fd5d2}} 
+\index{game\_ext.h@{game\_ext.h}!game\_new\_empty\_ext@{game\_new\_empty\_ext}}
+\index{game\_new\_empty\_ext@{game\_new\_empty\_ext}!game\_ext.h@{game\_ext.h}}
+\doxysubsubsection{\texorpdfstring{game\_new\_empty\_ext()}{game\_new\_empty\_ext()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}} game\+\_\+new\+\_\+empty\+\_\+ext (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{nb\+\_\+rows,  }\item[{\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{nb\+\_\+cols,  }\item[{bool}]{wrapping,  }\item[{\mbox{\hyperlink{game__ext_8h_a9c3f48cdfe80a3f80bfaf5e15c58456e}{neighbourhood}}}]{neigh }\end{DoxyParamCaption})}
+
+
+
+Creates a new empty game with extended options. 
+
+All squares are initialized with empty squares.
+
+
+\begin{DoxyParams}{Parameters}
+{\em nb\+\_\+rows} & Number of rows in the game. \\
+\hline
+{\em nb\+\_\+cols} & Number of columns in the game. \\
+\hline
+{\em wrapping} & Wrapping option. \\
+\hline
+{\em neigh} & Neighbourhood option. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The created game. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game__ext_8h_ad1691c1128a95d136d9b8496fd19aa59}\label{game__ext_8h_ad1691c1128a95d136d9b8496fd19aa59}} 
+\index{game\_ext.h@{game\_ext.h}!game\_new\_ext@{game\_new\_ext}}
+\index{game\_new\_ext@{game\_new\_ext}!game\_ext.h@{game\_ext.h}}
+\doxysubsubsection{\texorpdfstring{game\_new\_ext()}{game\_new\_ext()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}} game\+\_\+new\+\_\+ext (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{nb\+\_\+rows,  }\item[{\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{nb\+\_\+cols,  }\item[{\mbox{\hyperlink{game_8h_ac840eea0d96311de02e3204cdd2b8497}{constraint}} $\ast$}]{constraints,  }\item[{\mbox{\hyperlink{game_8h_a37dbdc30935031c05304482e1be89d8f}{color}} $\ast$}]{colors,  }\item[{bool}]{wrapping,  }\item[{\mbox{\hyperlink{game__ext_8h_a9c3f48cdfe80a3f80bfaf5e15c58456e}{neighbourhood}}}]{neigh }\end{DoxyParamCaption})}
+
+
+
+Creates a new game with extended options and initializes it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nb\+\_\+rows} & Number of rows in the game. \\
+\hline
+{\em nb\+\_\+cols} & Number of columns in the game. \\
+\hline
+{\em constraints} & An array describing the initial constraint of each square using row-\/major storage (of size nb\+\_\+rows$\ast$nb\+\_\+cols). \\
+\hline
+{\em colors} & An array describing the initial color of each square using row-\/major storage (of size nb\+\_\+rows$\ast$nb\+\_\+cols) or NULL to set all colors as EMPTY. \\
+\hline
+{\em wrapping} & Wrapping option. \\
+\hline
+{\em neigh} & Neighbourhood option. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+constraints must be an initialized array of default size squared. 
+
+colors must be an initialized array of default size squared or NULL. 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+The created game. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game__ext_8h_a2f80dbffdb3d7b16e05526a29a143f14}\label{game__ext_8h_a2f80dbffdb3d7b16e05526a29a143f14}} 
+\index{game\_ext.h@{game\_ext.h}!game\_redo@{game\_redo}}
+\index{game\_redo@{game\_redo}!game\_ext.h@{game\_ext.h}}
+\doxysubsubsection{\texorpdfstring{game\_redo()}{game\_redo()}}
+{\footnotesize\ttfamily void game\+\_\+redo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}}}]{g }\end{DoxyParamCaption})}
+
+
+
+Redoes the last move. 
+
+Searches in the history for the last cancelled move (by calling game\+\_\+undo), and replays it. If there are no more moves to be replayed, this function does nothing. After playing a new move with game\+\_\+play\+\_\+move, it is no longer possible to redo an old cancelled move.
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & The game. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+g is a valid pointer toward a cgame structure. 
+\end{DoxyPrecond}
+\mbox{\Hypertarget{game__ext_8h_a645c3423245a31af908fcd3434254204}\label{game__ext_8h_a645c3423245a31af908fcd3434254204}} 
+\index{game\_ext.h@{game\_ext.h}!game\_undo@{game\_undo}}
+\index{game\_undo@{game\_undo}!game\_ext.h@{game\_ext.h}}
+\doxysubsubsection{\texorpdfstring{game\_undo()}{game\_undo()}}
+{\footnotesize\ttfamily void game\+\_\+undo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}}}]{g }\end{DoxyParamCaption})}
+
+
+
+Undoes the last move. 
+
+Searches in the history for the last move played (by calling game\+\_\+play\+\_\+move or game\+\_\+redo), and restores the state of the game before that move. If no moves have been played, this function does nothing. The game\+\_\+restart function clears the history.
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & The game. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+g is a valid pointer toward a cgame structure. 
+\end{DoxyPrecond}

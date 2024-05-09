@@ -1,0 +1,74 @@
+\hypertarget{game__aux_8h}{}\doxysection{game\+\_\+aux.\+h File Reference}
+\label{game__aux_8h}\index{game\_aux.h@{game\_aux.h}}
+
+
+Auxiliarry Game Functions.  
+
+
+{\ttfamily \#include \char`\"{}game.\+h\char`\"{}}\newline
+Include dependency graph for game\+\_\+aux.\+h\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{game__aux_8h_a39ab5e32dca3e364d8dd3718e58af46d}{game\+\_\+print}} (\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}} g)
+\begin{DoxyCompactList}\small\item\em Prints a game as text on the standard output stream. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}} \mbox{\hyperlink{game__aux_8h_ad30ba0b92b9d524e2fe256a9e59675ba}{game\+\_\+default}} (void)
+\begin{DoxyCompactList}\small\item\em Creates the default game. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}} \mbox{\hyperlink{game__aux_8h_af2e1754d8db17fbbf66c56d697c1970e}{game\+\_\+default\+\_\+solution}} (void)
+\begin{DoxyCompactList}\small\item\em Creates the default game solution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Auxiliarry Game Functions. 
+
+See index for further details. \begin{DoxyCopyright}{Copyright}
+University of Bordeaux. All rights reserved, 2023. 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{game__aux_8h_ad30ba0b92b9d524e2fe256a9e59675ba}\label{game__aux_8h_ad30ba0b92b9d524e2fe256a9e59675ba}} 
+\index{game\_aux.h@{game\_aux.h}!game\_default@{game\_default}}
+\index{game\_default@{game\_default}!game\_aux.h@{game\_aux.h}}
+\doxysubsubsection{\texorpdfstring{game\_default()}{game\_default()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}} game\+\_\+default (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Creates the default game. 
+
+See the description of the default game in index. \begin{DoxyReturn}{Returns}
+the created game 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game__aux_8h_af2e1754d8db17fbbf66c56d697c1970e}\label{game__aux_8h_af2e1754d8db17fbbf66c56d697c1970e}} 
+\index{game\_aux.h@{game\_aux.h}!game\_default\_solution@{game\_default\_solution}}
+\index{game\_default\_solution@{game\_default\_solution}!game\_aux.h@{game\_aux.h}}
+\doxysubsubsection{\texorpdfstring{game\_default\_solution()}{game\_default\_solution()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}} game\+\_\+default\+\_\+solution (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Creates the default game solution. 
+
+See the description of the default game in index. \begin{DoxyReturn}{Returns}
+the created game 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game__aux_8h_a39ab5e32dca3e364d8dd3718e58af46d}\label{game__aux_8h_a39ab5e32dca3e364d8dd3718e58af46d}} 
+\index{game\_aux.h@{game\_aux.h}!game\_print@{game\_print}}
+\index{game\_print@{game\_print}!game\_aux.h@{game\_aux.h}}
+\doxysubsubsection{\texorpdfstring{game\_print()}{game\_print()}}
+{\footnotesize\ttfamily void game\+\_\+print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}}}]{g }\end{DoxyParamCaption})}
+
+
+
+Prints a game as text on the standard output stream. 
+
+The different squares are respectively displayed as text, as described in index. 
+\begin{DoxyParams}{Parameters}
+{\em g} & the game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily g} must be a valid pointer toward a game structure. 
+\end{DoxyPrecond}

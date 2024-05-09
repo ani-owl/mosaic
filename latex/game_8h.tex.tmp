@@ -1,0 +1,654 @@
+\hypertarget{game_8h}{}\doxysection{game.\+h File Reference}
+\label{game_8h}\index{game.h@{game.h}}
+
+
+Basic Game Functions.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for game.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{game_8h_a9771cabfd673a8e350f1f8ce0b8f458f}{DEFAULT\+\_\+\+SIZE}}~5
+\begin{DoxyCompactList}\small\item\em Size of the default game grid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned int \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}
+\begin{DoxyCompactList}\small\item\em Standard unsigned integer type. \end{DoxyCompactList}\item 
+typedef struct game\+\_\+s $\ast$ \mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}}
+\begin{DoxyCompactList}\small\item\em The structure pointer that stores the game state. \end{DoxyCompactList}\item 
+typedef const struct game\+\_\+s $\ast$ \mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}}
+\begin{DoxyCompactList}\small\item\em The structure constant pointer that stores the game state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{game_8h_a37dbdc30935031c05304482e1be89d8f}{color}} \{ \mbox{\hyperlink{game_8h_a37dbdc30935031c05304482e1be89d8fa2f0d18fc0d0fa4a6cd92dc328501874d}{EMPTY}}
+, \mbox{\hyperlink{game_8h_a37dbdc30935031c05304482e1be89d8fa283fc479650da98250635b9c3c0e7e50}{WHITE}}
+, \mbox{\hyperlink{game_8h_a37dbdc30935031c05304482e1be89d8faf77fb67151d0c18d397069ad8c271ba3}{BLACK}}
+ \}
+\item 
+enum \mbox{\hyperlink{game_8h_ac840eea0d96311de02e3204cdd2b8497}{constraint}} \{ \mbox{\hyperlink{game_8h_ac840eea0d96311de02e3204cdd2b8497a68817155e48a80c37c9c1a11a16b9757}{UNCONSTRAINED}} = -\/1
+, \mbox{\hyperlink{game_8h_ac840eea0d96311de02e3204cdd2b8497a59a31be5b2a806f887d55cb7495134c3}{MIN\+\_\+\+CONSTRAINT}} = -\/1
+, \mbox{\hyperlink{game_8h_ac840eea0d96311de02e3204cdd2b8497ae97701db635d7b3a902ad09607029702}{MAX\+\_\+\+CONSTRAINT}} = 9
+ \}
+\item 
+enum \mbox{\hyperlink{game_8h_a015eb90e0de9f16e87bd149d4b9ce959}{status}} \{ \mbox{\hyperlink{game_8h_a015eb90e0de9f16e87bd149d4b9ce959a2fd6f336d08340583bd620a7f5694c90}{ERROR}}
+, \mbox{\hyperlink{game_8h_a015eb90e0de9f16e87bd149d4b9ce959aac85ca3461341009548f1d8d6116f4fb}{UNSATISFIED}}
+, \mbox{\hyperlink{game_8h_a015eb90e0de9f16e87bd149d4b9ce959a27e50e629b31793df8d3cc9f5ccc1089}{SATISFIED}}
+ \}
+\item 
+enum \mbox{\hyperlink{game_8h_a99f26e6ee9fcd62f75203b5402df8098}{direction}} \{ \newline
+\mbox{\hyperlink{game_8h_a99f26e6ee9fcd62f75203b5402df8098a501379bd0602bc8a8384e18c47cae5cd}{HERE}}
+, \mbox{\hyperlink{game_8h_a99f26e6ee9fcd62f75203b5402df8098aba595d8bca8bc5e67c37c0a9d89becfa}{UP}}
+, \mbox{\hyperlink{game_8h_a99f26e6ee9fcd62f75203b5402df8098a9b0b4a95b99523966e0e34ffdadac9da}{DOWN}}
+, \mbox{\hyperlink{game_8h_a99f26e6ee9fcd62f75203b5402df8098adb45120aafd37a973140edee24708065}{LEFT}}
+, \newline
+\mbox{\hyperlink{game_8h_a99f26e6ee9fcd62f75203b5402df8098aec8379af7490bb9eaaf579cf17876f38}{RIGHT}}
+, \mbox{\hyperlink{game_8h_a99f26e6ee9fcd62f75203b5402df8098aa30e5e6cfd104178275f087ae51b3b74}{UP\+\_\+\+LEFT}}
+, \mbox{\hyperlink{game_8h_a99f26e6ee9fcd62f75203b5402df8098a91a530eb0387ac0d86947784a1946a14}{UP\+\_\+\+RIGHT}}
+, \mbox{\hyperlink{game_8h_a99f26e6ee9fcd62f75203b5402df8098a0ae724cef12b771121df5a7c083bf1b6}{DOWN\+\_\+\+LEFT}}
+, \newline
+\mbox{\hyperlink{game_8h_a99f26e6ee9fcd62f75203b5402df8098a2877ba4eb53c0dec12f0363cfca35d0e}{DOWN\+\_\+\+RIGHT}}
+ \}
+\begin{DoxyCompactList}\small\item\em All possible directions in the game grid to explore the neighbourhood of a given square. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}} \mbox{\hyperlink{game_8h_a429efb118379805f2358f8de22707a3a}{game\+\_\+new}} (\mbox{\hyperlink{game_8h_ac840eea0d96311de02e3204cdd2b8497}{constraint}} $\ast$constraints, \mbox{\hyperlink{game_8h_a37dbdc30935031c05304482e1be89d8f}{color}} $\ast$colors)
+\begin{DoxyCompactList}\small\item\em Creates a new game with default size and initializes it. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}} \mbox{\hyperlink{game_8h_af341f76844b0f42323d70b72c6a60573}{game\+\_\+new\+\_\+empty}} (void)
+\begin{DoxyCompactList}\small\item\em Creates a new empty game with defaut size. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}} \mbox{\hyperlink{game_8h_a13d5cd8eea008d03aafae1d308d5dc2f}{game\+\_\+copy}} (\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}} g)
+\begin{DoxyCompactList}\small\item\em Duplicates a game. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{game_8h_a0c562623e4ae707225e4111f9ed7421e}{game\+\_\+equal}} (\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}} g1, \mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}} g2)
+\begin{DoxyCompactList}\small\item\em Tests if two games are equal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game_8h_adfa83e890e413cf2cff0d7c6297941b6}{game\+\_\+delete}} (\mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}} g)
+\begin{DoxyCompactList}\small\item\em Deletes the game and frees the allocated memory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game_8h_afa6f344b10cfaaea582f4be99557b4f3}{game\+\_\+set\+\_\+constraint}} (\mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}} g, \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} i, \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} j, \mbox{\hyperlink{game_8h_ac840eea0d96311de02e3204cdd2b8497}{constraint}} n)
+\begin{DoxyCompactList}\small\item\em Sets the constraint of a given square. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game_8h_ad49e4e85d05f7300f363563d580eac45}{game\+\_\+set\+\_\+color}} (\mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}} g, \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} i, \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} j, \mbox{\hyperlink{game_8h_a37dbdc30935031c05304482e1be89d8f}{color}} c)
+\begin{DoxyCompactList}\small\item\em Sets the color of a given square. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game_8h_ac840eea0d96311de02e3204cdd2b8497}{constraint}} \mbox{\hyperlink{game_8h_a766a8cbff50cb5b72568028221b1a0ff}{game\+\_\+get\+\_\+constraint}} (\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}} g, \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} i, \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} j)
+\begin{DoxyCompactList}\small\item\em Gets the constraint of a given square. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game_8h_a37dbdc30935031c05304482e1be89d8f}{color}} \mbox{\hyperlink{game_8h_a26fa7f744a0158b50ee961e92f890e46}{game\+\_\+get\+\_\+color}} (\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}} g, \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} i, \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} j)
+\begin{DoxyCompactList}\small\item\em Gets the color of a given square. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{game_8h_a7147fbf2707ea473432dfa456b1f4bd2}{game\+\_\+get\+\_\+next\+\_\+square}} (\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}} g, \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} i, \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} j, \mbox{\hyperlink{game_8h_a99f26e6ee9fcd62f75203b5402df8098}{direction}} dir, \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} $\ast$pi\+\_\+next, \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} $\ast$pj\+\_\+next)
+\begin{DoxyCompactList}\small\item\em Gets the coordinate of the next square in a given direction. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game_8h_a015eb90e0de9f16e87bd149d4b9ce959}{status}} \mbox{\hyperlink{game_8h_ae8c6eb43976393a594c3a7b306aa241e}{game\+\_\+get\+\_\+status}} (\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}} g, \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} i, \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} j)
+\begin{DoxyCompactList}\small\item\em Gets the square status. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game_8h_ad09315098b7b214d1221723ace304879}{game\+\_\+nb\+\_\+neighbors}} (\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}} g, \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} i, \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} j, \mbox{\hyperlink{game_8h_a37dbdc30935031c05304482e1be89d8f}{color}} c)
+\begin{DoxyCompactList}\small\item\em Returns the number of neighbors of the same color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game_8h_a4239f90e39cfa66c90a42f36a5e6a789}{game\+\_\+play\+\_\+move}} (\mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}} g, \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} i, \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} j, \mbox{\hyperlink{game_8h_a37dbdc30935031c05304482e1be89d8f}{color}} c)
+\begin{DoxyCompactList}\small\item\em Plays a move in a given square. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{game_8h_a0ab30b4afd9b2d889d4cc0f2533cb022}{game\+\_\+won}} (\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}} g)
+\begin{DoxyCompactList}\small\item\em Checks if the game is won. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game_8h_a403c5ff67201946c3f7043d62d2abb7f}{game\+\_\+restart}} (\mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}} g)
+\begin{DoxyCompactList}\small\item\em Restarts a game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Basic Game Functions. 
+
+See index for further details. \begin{DoxyCopyright}{Copyright}
+University of Bordeaux. All rights reserved, 2023. 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{game_8h_a9771cabfd673a8e350f1f8ce0b8f458f}\label{game_8h_a9771cabfd673a8e350f1f8ce0b8f458f}} 
+\index{game.h@{game.h}!DEFAULT\_SIZE@{DEFAULT\_SIZE}}
+\index{DEFAULT\_SIZE@{DEFAULT\_SIZE}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_SIZE}{DEFAULT\_SIZE}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+SIZE~5}
+
+
+
+Size of the default game grid. 
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{game_8h_aa593d9745d861794dde8f808e750457b}\label{game_8h_aa593d9745d861794dde8f808e750457b}} 
+\index{game.h@{game.h}!cgame@{cgame}}
+\index{cgame@{cgame}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{cgame}{cgame}}
+{\footnotesize\ttfamily typedef const struct game\+\_\+s$\ast$ \mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}}}
+
+
+
+The structure constant pointer that stores the game state. 
+
+That means that it is not possible to modify the game using this pointer. \mbox{\Hypertarget{game_8h_a6506ae481babb520162987a6cc2e10ed}\label{game_8h_a6506ae481babb520162987a6cc2e10ed}} 
+\index{game.h@{game.h}!game@{game}}
+\index{game@{game}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game}{game}}
+{\footnotesize\ttfamily typedef struct game\+\_\+s$\ast$ \mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}}}
+
+
+
+The structure pointer that stores the game state. 
+
+\mbox{\Hypertarget{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}\label{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}} 
+\index{game.h@{game.h}!uint@{uint}}
+\index{uint@{uint}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{uint}{uint}}
+{\footnotesize\ttfamily typedef unsigned int \mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}
+
+
+
+Standard unsigned integer type. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{game_8h_a37dbdc30935031c05304482e1be89d8f}\label{game_8h_a37dbdc30935031c05304482e1be89d8f}} 
+\index{game.h@{game.h}!color@{color}}
+\index{color@{color}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{color}{color}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{game_8h_a37dbdc30935031c05304482e1be89d8f}{color}}}
+
+square colors \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EMPTY@{EMPTY}!game.h@{game.h}}\index{game.h@{game.h}!EMPTY@{EMPTY}}}\mbox{\Hypertarget{game_8h_a37dbdc30935031c05304482e1be89d8fa2f0d18fc0d0fa4a6cd92dc328501874d}\label{game_8h_a37dbdc30935031c05304482e1be89d8fa2f0d18fc0d0fa4a6cd92dc328501874d}} 
+EMPTY&empty square \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WHITE@{WHITE}!game.h@{game.h}}\index{game.h@{game.h}!WHITE@{WHITE}}}\mbox{\Hypertarget{game_8h_a37dbdc30935031c05304482e1be89d8fa283fc479650da98250635b9c3c0e7e50}\label{game_8h_a37dbdc30935031c05304482e1be89d8fa283fc479650da98250635b9c3c0e7e50}} 
+WHITE&white square \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLACK@{BLACK}!game.h@{game.h}}\index{game.h@{game.h}!BLACK@{BLACK}}}\mbox{\Hypertarget{game_8h_a37dbdc30935031c05304482e1be89d8faf77fb67151d0c18d397069ad8c271ba3}\label{game_8h_a37dbdc30935031c05304482e1be89d8faf77fb67151d0c18d397069ad8c271ba3}} 
+BLACK&blacksquare \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{game_8h_ac840eea0d96311de02e3204cdd2b8497}\label{game_8h_ac840eea0d96311de02e3204cdd2b8497}} 
+\index{game.h@{game.h}!constraint@{constraint}}
+\index{constraint@{constraint}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{constraint}{constraint}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{game_8h_ac840eea0d96311de02e3204cdd2b8497}{constraint}}}
+
+square constraints
+
+These constants are numerical constraints that indicate the expected number of black squares in the 3x3 neighborhood of a given square (including itself). All valid constant numbers are between 0 and 9. The special constant UNCONSTRAINED (-\/1) indicates that there is no particular constraint on a square, i.\+e. there can be any number of black squares in its neighborhood.
+
+\begin{DoxyWarning}{Warning}
+Values from 0 to 9 are not explicitly listed here, but can be used normally with this enumeration type. For example, {\ttfamily constraint n = 3} is correct. 
+\end{DoxyWarning}
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UNCONSTRAINED@{UNCONSTRAINED}!game.h@{game.h}}\index{game.h@{game.h}!UNCONSTRAINED@{UNCONSTRAINED}}}\mbox{\Hypertarget{game_8h_ac840eea0d96311de02e3204cdd2b8497a68817155e48a80c37c9c1a11a16b9757}\label{game_8h_ac840eea0d96311de02e3204cdd2b8497a68817155e48a80c37c9c1a11a16b9757}} 
+UNCONSTRAINED&unconstrained square \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MIN\_CONSTRAINT@{MIN\_CONSTRAINT}!game.h@{game.h}}\index{game.h@{game.h}!MIN\_CONSTRAINT@{MIN\_CONSTRAINT}}}\mbox{\Hypertarget{game_8h_ac840eea0d96311de02e3204cdd2b8497a59a31be5b2a806f887d55cb7495134c3}\label{game_8h_ac840eea0d96311de02e3204cdd2b8497a59a31be5b2a806f887d55cb7495134c3}} 
+MIN\+\_\+\+CONSTRAINT&minimum square constraint \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MAX\_CONSTRAINT@{MAX\_CONSTRAINT}!game.h@{game.h}}\index{game.h@{game.h}!MAX\_CONSTRAINT@{MAX\_CONSTRAINT}}}\mbox{\Hypertarget{game_8h_ac840eea0d96311de02e3204cdd2b8497ae97701db635d7b3a902ad09607029702}\label{game_8h_ac840eea0d96311de02e3204cdd2b8497ae97701db635d7b3a902ad09607029702}} 
+MAX\+\_\+\+CONSTRAINT&maximum square constraint \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{game_8h_a99f26e6ee9fcd62f75203b5402df8098}\label{game_8h_a99f26e6ee9fcd62f75203b5402df8098}} 
+\index{game.h@{game.h}!direction@{direction}}
+\index{direction@{direction}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{direction}{direction}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{game_8h_a99f26e6ee9fcd62f75203b5402df8098}{direction}}}
+
+
+
+All possible directions in the game grid to explore the neighbourhood of a given square. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HERE@{HERE}!game.h@{game.h}}\index{game.h@{game.h}!HERE@{HERE}}}\mbox{\Hypertarget{game_8h_a99f26e6ee9fcd62f75203b5402df8098a501379bd0602bc8a8384e18c47cae5cd}\label{game_8h_a99f26e6ee9fcd62f75203b5402df8098a501379bd0602bc8a8384e18c47cae5cd}} 
+HERE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UP@{UP}!game.h@{game.h}}\index{game.h@{game.h}!UP@{UP}}}\mbox{\Hypertarget{game_8h_a99f26e6ee9fcd62f75203b5402df8098aba595d8bca8bc5e67c37c0a9d89becfa}\label{game_8h_a99f26e6ee9fcd62f75203b5402df8098aba595d8bca8bc5e67c37c0a9d89becfa}} 
+UP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DOWN@{DOWN}!game.h@{game.h}}\index{game.h@{game.h}!DOWN@{DOWN}}}\mbox{\Hypertarget{game_8h_a99f26e6ee9fcd62f75203b5402df8098a9b0b4a95b99523966e0e34ffdadac9da}\label{game_8h_a99f26e6ee9fcd62f75203b5402df8098a9b0b4a95b99523966e0e34ffdadac9da}} 
+DOWN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT@{LEFT}!game.h@{game.h}}\index{game.h@{game.h}!LEFT@{LEFT}}}\mbox{\Hypertarget{game_8h_a99f26e6ee9fcd62f75203b5402df8098adb45120aafd37a973140edee24708065}\label{game_8h_a99f26e6ee9fcd62f75203b5402df8098adb45120aafd37a973140edee24708065}} 
+LEFT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RIGHT@{RIGHT}!game.h@{game.h}}\index{game.h@{game.h}!RIGHT@{RIGHT}}}\mbox{\Hypertarget{game_8h_a99f26e6ee9fcd62f75203b5402df8098aec8379af7490bb9eaaf579cf17876f38}\label{game_8h_a99f26e6ee9fcd62f75203b5402df8098aec8379af7490bb9eaaf579cf17876f38}} 
+RIGHT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UP\_LEFT@{UP\_LEFT}!game.h@{game.h}}\index{game.h@{game.h}!UP\_LEFT@{UP\_LEFT}}}\mbox{\Hypertarget{game_8h_a99f26e6ee9fcd62f75203b5402df8098aa30e5e6cfd104178275f087ae51b3b74}\label{game_8h_a99f26e6ee9fcd62f75203b5402df8098aa30e5e6cfd104178275f087ae51b3b74}} 
+UP\+\_\+\+LEFT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UP\_RIGHT@{UP\_RIGHT}!game.h@{game.h}}\index{game.h@{game.h}!UP\_RIGHT@{UP\_RIGHT}}}\mbox{\Hypertarget{game_8h_a99f26e6ee9fcd62f75203b5402df8098a91a530eb0387ac0d86947784a1946a14}\label{game_8h_a99f26e6ee9fcd62f75203b5402df8098a91a530eb0387ac0d86947784a1946a14}} 
+UP\+\_\+\+RIGHT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DOWN\_LEFT@{DOWN\_LEFT}!game.h@{game.h}}\index{game.h@{game.h}!DOWN\_LEFT@{DOWN\_LEFT}}}\mbox{\Hypertarget{game_8h_a99f26e6ee9fcd62f75203b5402df8098a0ae724cef12b771121df5a7c083bf1b6}\label{game_8h_a99f26e6ee9fcd62f75203b5402df8098a0ae724cef12b771121df5a7c083bf1b6}} 
+DOWN\+\_\+\+LEFT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DOWN\_RIGHT@{DOWN\_RIGHT}!game.h@{game.h}}\index{game.h@{game.h}!DOWN\_RIGHT@{DOWN\_RIGHT}}}\mbox{\Hypertarget{game_8h_a99f26e6ee9fcd62f75203b5402df8098a2877ba4eb53c0dec12f0363cfca35d0e}\label{game_8h_a99f26e6ee9fcd62f75203b5402df8098a2877ba4eb53c0dec12f0363cfca35d0e}} 
+DOWN\+\_\+\+RIGHT&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{game_8h_a015eb90e0de9f16e87bd149d4b9ce959}\label{game_8h_a015eb90e0de9f16e87bd149d4b9ce959}} 
+\index{game.h@{game.h}!status@{status}}
+\index{status@{status}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{game_8h_a015eb90e0de9f16e87bd149d4b9ce959}{status}}}
+
+square status
+
+These constants are used to indicate the status of a square in the grid, that can be either ERROR, SATISFIED or UNSATISFIED depending on the colors of its 3x3 neighborhood (including the square itself). More precisely, the ERROR status indicates that the number of black (or white) squares in the neighborhood is too high, so that the numerical square constraint cannot be met. The SATISFIED status indicates that the number of black squares in the neighborhood is equal to the numerical square constraint, and that the other squares are white, i.\+e. there are no more EMPTY squares in the 3x3 neighborhood. Finally, the status UNSATISFIED indicates that the numerical constraint has not yet been satisfied, but may still be. In this case, there are still EMPTY squares in the neighborhood, but there are no obvious errors.
+
+\begin{DoxyWarning}{Warning}
+All theses statuses are mutually exclusive, i.\+e. a square cannot be both ERROR and UNSATISFIED. 
+\end{DoxyWarning}
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERROR@{ERROR}!game.h@{game.h}}\index{game.h@{game.h}!ERROR@{ERROR}}}\mbox{\Hypertarget{game_8h_a015eb90e0de9f16e87bd149d4b9ce959a2fd6f336d08340583bd620a7f5694c90}\label{game_8h_a015eb90e0de9f16e87bd149d4b9ce959a2fd6f336d08340583bd620a7f5694c90}} 
+ERROR&error status \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UNSATISFIED@{UNSATISFIED}!game.h@{game.h}}\index{game.h@{game.h}!UNSATISFIED@{UNSATISFIED}}}\mbox{\Hypertarget{game_8h_a015eb90e0de9f16e87bd149d4b9ce959aac85ca3461341009548f1d8d6116f4fb}\label{game_8h_a015eb90e0de9f16e87bd149d4b9ce959aac85ca3461341009548f1d8d6116f4fb}} 
+UNSATISFIED&unsatisfied status \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SATISFIED@{SATISFIED}!game.h@{game.h}}\index{game.h@{game.h}!SATISFIED@{SATISFIED}}}\mbox{\Hypertarget{game_8h_a015eb90e0de9f16e87bd149d4b9ce959a27e50e629b31793df8d3cc9f5ccc1089}\label{game_8h_a015eb90e0de9f16e87bd149d4b9ce959a27e50e629b31793df8d3cc9f5ccc1089}} 
+SATISFIED&satisfied status \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{game_8h_a13d5cd8eea008d03aafae1d308d5dc2f}\label{game_8h_a13d5cd8eea008d03aafae1d308d5dc2f}} 
+\index{game.h@{game.h}!game\_copy@{game\_copy}}
+\index{game\_copy@{game\_copy}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_copy()}{game\_copy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}} game\+\_\+copy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}}}]{g }\end{DoxyParamCaption})}
+
+
+
+Duplicates a game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & the game to copy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the copy of the game 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily g} must be a valid pointer toward a game structure. 
+\end{DoxyPrecond}
+\mbox{\Hypertarget{game_8h_adfa83e890e413cf2cff0d7c6297941b6}\label{game_8h_adfa83e890e413cf2cff0d7c6297941b6}} 
+\index{game.h@{game.h}!game\_delete@{game\_delete}}
+\index{game\_delete@{game\_delete}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_delete()}{game\_delete()}}
+{\footnotesize\ttfamily void game\+\_\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}}}]{g }\end{DoxyParamCaption})}
+
+
+
+Deletes the game and frees the allocated memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & the game to delete \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily g} must be a valid pointer toward a game structure. 
+\end{DoxyPrecond}
+\mbox{\Hypertarget{game_8h_a0c562623e4ae707225e4111f9ed7421e}\label{game_8h_a0c562623e4ae707225e4111f9ed7421e}} 
+\index{game.h@{game.h}!game\_equal@{game\_equal}}
+\index{game\_equal@{game\_equal}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_equal()}{game\_equal()}}
+{\footnotesize\ttfamily bool game\+\_\+equal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}}}]{g1,  }\item[{\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}}}]{g2 }\end{DoxyParamCaption})}
+
+
+
+Tests if two games are equal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g1} & the first game \\
+\hline
+{\em g2} & the second game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the two games are equal, false otherwise 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily g1} must be a valid pointer toward a game structure. 
+
+{\ttfamily g2} must be a valid pointer toward a game structure. 
+\end{DoxyPrecond}
+\mbox{\Hypertarget{game_8h_a26fa7f744a0158b50ee961e92f890e46}\label{game_8h_a26fa7f744a0158b50ee961e92f890e46}} 
+\index{game.h@{game.h}!game\_get\_color@{game\_get\_color}}
+\index{game\_get\_color@{game\_get\_color}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_get\_color()}{game\_get\_color()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{game_8h_a37dbdc30935031c05304482e1be89d8f}{color}} game\+\_\+get\+\_\+color (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}}}]{g,  }\item[{\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{i,  }\item[{\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{j }\end{DoxyParamCaption})}
+
+
+
+Gets the color of a given square. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & the game \\
+\hline
+{\em i} & row index \\
+\hline
+{\em j} & column index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily g} must be a valid pointer toward a game structure. 
+
+{\ttfamily i} $<$ game height 
+
+{\ttfamily j} $<$ game width 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+the square color 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a766a8cbff50cb5b72568028221b1a0ff}\label{game_8h_a766a8cbff50cb5b72568028221b1a0ff}} 
+\index{game.h@{game.h}!game\_get\_constraint@{game\_get\_constraint}}
+\index{game\_get\_constraint@{game\_get\_constraint}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_get\_constraint()}{game\_get\_constraint()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{game_8h_ac840eea0d96311de02e3204cdd2b8497}{constraint}} game\+\_\+get\+\_\+constraint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}}}]{g,  }\item[{\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{i,  }\item[{\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{j }\end{DoxyParamCaption})}
+
+
+
+Gets the constraint of a given square. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & the game \\
+\hline
+{\em i} & row index \\
+\hline
+{\em j} & column index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily g} must be a valid pointer toward a game structure. 
+
+{\ttfamily i} $<$ game height 
+
+{\ttfamily j} $<$ game width 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+the square constraint or -\/1 if unconstrained square 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a7147fbf2707ea473432dfa456b1f4bd2}\label{game_8h_a7147fbf2707ea473432dfa456b1f4bd2}} 
+\index{game.h@{game.h}!game\_get\_next\_square@{game\_get\_next\_square}}
+\index{game\_get\_next\_square@{game\_get\_next\_square}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_get\_next\_square()}{game\_get\_next\_square()}}
+{\footnotesize\ttfamily bool game\+\_\+get\+\_\+next\+\_\+square (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}}}]{g,  }\item[{\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{i,  }\item[{\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{j,  }\item[{\mbox{\hyperlink{game_8h_a99f26e6ee9fcd62f75203b5402df8098}{direction}}}]{dir,  }\item[{\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} $\ast$}]{pi\+\_\+next,  }\item[{\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} $\ast$}]{pj\+\_\+next }\end{DoxyParamCaption})}
+
+
+
+Gets the coordinate of the next square in a given direction. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em g} & the game \\
+\hline
+ & {\em i} & row index \\
+\hline
+ & {\em j} & column index \\
+\hline
+ & {\em dir} & the direction \\
+\hline
+\mbox{\texttt{ out}}  & {\em pi\+\_\+next} & the row index of the next square (output) \\
+\hline
+\mbox{\texttt{ out}}  & {\em pj\+\_\+next} & the column index of the next square (output) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily g} must be a valid pointer toward a game structure. 
+
+{\ttfamily i} $<$ game height 
+
+{\ttfamily j} $<$ game width 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+true if the next square is inside the grid, false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_ae8c6eb43976393a594c3a7b306aa241e}\label{game_8h_ae8c6eb43976393a594c3a7b306aa241e}} 
+\index{game.h@{game.h}!game\_get\_status@{game\_get\_status}}
+\index{game\_get\_status@{game\_get\_status}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_get\_status()}{game\_get\_status()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{game_8h_a015eb90e0de9f16e87bd149d4b9ce959}{status}} game\+\_\+get\+\_\+status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}}}]{g,  }\item[{\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{i,  }\item[{\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{j }\end{DoxyParamCaption})}
+
+
+
+Gets the square status. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & the game \\
+\hline
+{\em i} & the row index \\
+\hline
+{\em j} & the column index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the square status, either ERROR, UNSATISFIED or SATISFIED. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_ad09315098b7b214d1221723ace304879}\label{game_8h_ad09315098b7b214d1221723ace304879}} 
+\index{game.h@{game.h}!game\_nb\_neighbors@{game\_nb\_neighbors}}
+\index{game\_nb\_neighbors@{game\_nb\_neighbors}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_nb\_neighbors()}{game\_nb\_neighbors()}}
+{\footnotesize\ttfamily int game\+\_\+nb\+\_\+neighbors (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}}}]{g,  }\item[{\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{i,  }\item[{\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{j,  }\item[{\mbox{\hyperlink{game_8h_a37dbdc30935031c05304482e1be89d8f}{color}}}]{c }\end{DoxyParamCaption})}
+
+
+
+Returns the number of neighbors of the same color. 
+
+This function counts the number of squares of color {\ttfamily c} in the 3x3 neighborhood of the square at coordinate (i, j), including the square itself in this count. 
+\begin{DoxyParams}{Parameters}
+{\em g} & the game \\
+\hline
+{\em i} & row index \\
+\hline
+{\em j} & column index \\
+\hline
+{\em c} & the choosen color \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily g} must be a valid pointer toward a game structure. 
+
+{\ttfamily i} $<$ game height 
+
+{\ttfamily j} $<$ game width 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+the number of neighbors of the same color 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a429efb118379805f2358f8de22707a3a}\label{game_8h_a429efb118379805f2358f8de22707a3a}} 
+\index{game.h@{game.h}!game\_new@{game\_new}}
+\index{game\_new@{game\_new}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_new()}{game\_new()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}} game\+\_\+new (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_ac840eea0d96311de02e3204cdd2b8497}{constraint}} $\ast$}]{constraints,  }\item[{\mbox{\hyperlink{game_8h_a37dbdc30935031c05304482e1be89d8f}{color}} $\ast$}]{colors }\end{DoxyParamCaption})}
+
+
+
+Creates a new game with default size and initializes it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em constraints} & an array describing the initial constraint of each square using row-\/major storage (of size DEFAULT\+\_\+\+SIZE squared) \\
+\hline
+{\em colors} & an array describing the initial color of each square using row-\/major storage (of size DEFAULT\+\_\+\+SIZE squared) or NULL to set all colors as EMPTY \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily constraints} must be an initialized array of default size squared 
+
+{\ttfamily colors} must be an initialized array of default size squared or NULL 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+the created game 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_af341f76844b0f42323d70b72c6a60573}\label{game_8h_af341f76844b0f42323d70b72c6a60573}} 
+\index{game.h@{game.h}!game\_new\_empty@{game\_new\_empty}}
+\index{game\_new\_empty@{game\_new\_empty}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_new\_empty()}{game\_new\_empty()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}} game\+\_\+new\+\_\+empty (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Creates a new empty game with defaut size. 
+
+All squares are initialized with unconstrained squares, with empty color. \begin{DoxyReturn}{Returns}
+the created game 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a4239f90e39cfa66c90a42f36a5e6a789}\label{game_8h_a4239f90e39cfa66c90a42f36a5e6a789}} 
+\index{game.h@{game.h}!game\_play\_move@{game\_play\_move}}
+\index{game\_play\_move@{game\_play\_move}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_play\_move()}{game\_play\_move()}}
+{\footnotesize\ttfamily void game\+\_\+play\+\_\+move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}}}]{g,  }\item[{\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{i,  }\item[{\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{j,  }\item[{\mbox{\hyperlink{game_8h_a37dbdc30935031c05304482e1be89d8f}{color}}}]{c }\end{DoxyParamCaption})}
+
+
+
+Plays a move in a given square. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & the game \\
+\hline
+{\em i} & row index \\
+\hline
+{\em j} & column index \\
+\hline
+{\em c} & the color to play \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily g} must be a valid pointer toward a game structure. 
+
+{\ttfamily i} $<$ game height 
+
+{\ttfamily j} $<$ game width 
+
+{\ttfamily c} must be a valid color (BLACK, WHITE or EMPTY) 
+\end{DoxyPrecond}
+\mbox{\Hypertarget{game_8h_a403c5ff67201946c3f7043d62d2abb7f}\label{game_8h_a403c5ff67201946c3f7043d62d2abb7f}} 
+\index{game.h@{game.h}!game\_restart@{game\_restart}}
+\index{game\_restart@{game\_restart}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_restart()}{game\_restart()}}
+{\footnotesize\ttfamily void game\+\_\+restart (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}}}]{g }\end{DoxyParamCaption})}
+
+
+
+Restarts a game. 
+
+All the game is reset to its initial state. In particular, all the colors are removed. 
+\begin{DoxyParams}{Parameters}
+{\em g} & the game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily g} must be a valid pointer toward a game structure. 
+\end{DoxyPrecond}
+\mbox{\Hypertarget{game_8h_ad49e4e85d05f7300f363563d580eac45}\label{game_8h_ad49e4e85d05f7300f363563d580eac45}} 
+\index{game.h@{game.h}!game\_set\_color@{game\_set\_color}}
+\index{game\_set\_color@{game\_set\_color}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_set\_color()}{game\_set\_color()}}
+{\footnotesize\ttfamily void game\+\_\+set\+\_\+color (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}}}]{g,  }\item[{\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{i,  }\item[{\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{j,  }\item[{\mbox{\hyperlink{game_8h_a37dbdc30935031c05304482e1be89d8f}{color}}}]{c }\end{DoxyParamCaption})}
+
+
+
+Sets the color of a given square. 
+
+This function is useful for initializing the squares of an empty game. 
+\begin{DoxyParams}{Parameters}
+{\em g} & the game \\
+\hline
+{\em i} & row index \\
+\hline
+{\em j} & column index \\
+\hline
+{\em c} & the square color \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily g} must be a valid pointer toward a game structure. 
+
+{\ttfamily i} $<$ game height 
+
+{\ttfamily j} $<$ game width 
+
+{\ttfamily c} must be a valid color (BLACK, WHITE or EMPTY) 
+\end{DoxyPrecond}
+\mbox{\Hypertarget{game_8h_afa6f344b10cfaaea582f4be99557b4f3}\label{game_8h_afa6f344b10cfaaea582f4be99557b4f3}} 
+\index{game.h@{game.h}!game\_set\_constraint@{game\_set\_constraint}}
+\index{game\_set\_constraint@{game\_set\_constraint}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_set\_constraint()}{game\_set\_constraint()}}
+{\footnotesize\ttfamily void game\+\_\+set\+\_\+constraint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a6506ae481babb520162987a6cc2e10ed}{game}}}]{g,  }\item[{\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{i,  }\item[{\mbox{\hyperlink{game_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{j,  }\item[{\mbox{\hyperlink{game_8h_ac840eea0d96311de02e3204cdd2b8497}{constraint}}}]{n }\end{DoxyParamCaption})}
+
+
+
+Sets the constraint of a given square. 
+
+This function is useful for initializing the squares of an empty game. 
+\begin{DoxyParams}{Parameters}
+{\em g} & the game \\
+\hline
+{\em i} & row index \\
+\hline
+{\em j} & column index \\
+\hline
+{\em n} & the square constraint (or -\/1 if unconstrained square) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily g} must be a valid pointer toward a game structure. 
+
+{\ttfamily i} $<$ game height 
+
+{\ttfamily j} $<$ game width 
+
+{\ttfamily n} $>$= MIN\+\_\+\+CONSTRAINT and {\ttfamily n} $<$= MAX\+\_\+\+CONSTRAINT 
+\end{DoxyPrecond}
+\mbox{\Hypertarget{game_8h_a0ab30b4afd9b2d889d4cc0f2533cb022}\label{game_8h_a0ab30b4afd9b2d889d4cc0f2533cb022}} 
+\index{game.h@{game.h}!game\_won@{game\_won}}
+\index{game\_won@{game\_won}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_won()}{game\_won()}}
+{\footnotesize\ttfamily bool game\+\_\+won (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_aa593d9745d861794dde8f808e750457b}{cgame}}}]{g }\end{DoxyParamCaption})}
+
+
+
+Checks if the game is won. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & the game\\
+\hline
+\end{DoxyParams}
+This function checks that all the game rules are satisfied, i.\+e. all squares have color WHITE or BLACK with status SATISFIED. \begin{DoxyReturn}{Returns}
+true if the game is won, false otherwise 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily g} must be a valid pointer toward a game structure. 
+
+{\ttfamily i} $<$ game height 
+
+{\ttfamily j} $<$ game width 
+\end{DoxyPrecond}
